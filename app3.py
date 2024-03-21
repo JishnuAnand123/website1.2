@@ -61,7 +61,7 @@ def create_table():
 def insert_data(name, phone_num, email,address,experience,location,github,linkdin,additional_link, job_role, file_name,type):
     conn = psycopg2.connect(host=db_host, user=db_user, password=db_password, dbname=db_name)
     cur = conn.cursor()
-    cur.execute("INSERT INTO users (name, phone_num, email,address,,experience,location,github,linkdin,additional_link,job_role, file_name,type) VALUES (%s, %s, %s, %s, %s)",
+    cur.execute("INSERT INTO users (name, phone_num, email,address,experience,location,github,linkdin,additional_link,job_role, file_name,type) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                 (name, phone_num, email,address,experience,location,github,linkdin,additional_link, job_role, file_name,type))
     conn.commit()
     conn.close()
