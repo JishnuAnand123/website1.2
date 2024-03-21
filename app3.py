@@ -36,7 +36,7 @@ def create_table():
     conn = psycopg2.connect(host=db_host, user=db_user, password=db_password, dbname=db_name)
     cur = conn.cursor()
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS Users (
+        CREATE TABLE IF NOT EXISTS user_data (
             id SERIAL PRIMARY KEY,
             name VARCHAR(255),
             phone_num VARCHAR(20),
@@ -61,7 +61,7 @@ def create_table():
 def insert_data(name, phone_num, email,address,experience,location,github,linkdin,additional_link, job_role, file_name,type):
     conn = psycopg2.connect(host=db_host, user=db_user, password=db_password, dbname=db_name)
     cur = conn.cursor()
-    cur.execute("INSERT INTO Users (name, phone_num, email,address,experience,location,github,linkdin,additional_link,job_role, file_name,type) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+    cur.execute("INSERT INTO user_data (name, phone_num, email,address,experience,location,github,linkdin,additional_link,job_role, file_name,type) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                 (name, phone_num, email,address,experience,location,github,linkdin,additional_link, job_role, file_name,type))
     conn.commit()
     conn.close()
