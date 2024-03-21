@@ -44,9 +44,9 @@ def create_table():
             address VARCHAR(255),
             experience VARCHAR(30),
             location VARCHAR(20),
-            github VARCHAR(30) DEFAULT "NONE",
-            linkdin VARCHAR(30) DEFAULT "NONE",
-            additional_link VARCHAR(30) DEFAULT "NONE,                        
+            github VARCHAR(30) DEFAULT 'NONE',
+            linkdin VARCHAR(30) DEFAULT 'NONE',
+            additional_link VARCHAR(30) DEFAULT 'NONE',                        
             job_role VARCHAR(255),
             file_name VARCHAR(255),
             type VARCHAR(10)    
