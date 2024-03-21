@@ -44,9 +44,9 @@ def create_table():
             address VARCHAR(255),
             experience VARCHAR(30),
             location VARCHAR(20),
-            github VARCHAR(30) DEFAULT 'NONE',
-            linkdin VARCHAR(30) DEFAULT 'NONE',
-            additional_link VARCHAR(30) DEFAULT 'NONE',                        
+            github VARCHAR(30) DEFAULT "NONE",
+            linkdin VARCHAR(30) DEFAULT "NONE",
+            additional_link VARCHAR(30) DEFAULT "NONE,                        
             job_role VARCHAR(255),
             file_name VARCHAR(255),
             type VARCHAR(10)    
@@ -61,7 +61,7 @@ def create_table():
 def insert_data(name, phone_num, email,address,experience,location,github,linkdin,additional_link, job_role, file_name,type):
     conn = psycopg2.connect(host=db_host, user=db_user, password=db_password, dbname=db_name)
     cur = conn.cursor()
-    cur.execute("INSERT INTO users (name, phone_num, email,address,experience,location,github,linkdin,additional_link,job_role, file_name,type) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+    cur.execute("INSERT INTO users (name, phone_num, email,address,,experience,location,github,linkdin,additional_link,job_role, file_name,type) VALUES (%s, %s, %s, %s, %s)",
                 (name, phone_num, email,address,experience,location,github,linkdin,additional_link, job_role, file_name,type))
     conn.commit()
     conn.close()
@@ -81,9 +81,9 @@ def submit():
     address= request.form.get("address")
     experience = request.form.get("experience")
     location = request.form.get("location")
-    github = request.form.get("location")
-    linkdin = request.form.get("location")
-    additional_link = request.form.get("location")
+    github = request.form.get("github")
+    linkdin = request.form.get("linkdin")
+    additional_link = request.form.get("additional_link")
     job_role=request.form.get("job")
     uploaded_file = request.files['file']
     type=request.form.get("type")
