@@ -23,6 +23,7 @@
             background-color: #024130; /* Bluish-green color */
             color: #fff; /* Text color */
             padding: 10px; /* Add padding for better appearance */
+            width: 100%;
         }
 
         /* Style for footer */
@@ -34,6 +35,13 @@
             width: 100%; /* Full width */
             bottom: 0; /* Stick to the bottom */
             left: 0; /* Align to the left */
+            display: flex; /* Use flexbox */
+            justify-content: space-between; /* Space items evenly */
+            flex-wrap: wrap; /* Allow items to wrap to next line if needed */
+        }
+
+        .footer-text {
+            margin-right: 20px; /* Push to the right */
         }
 
         /* Style for form elements */
@@ -80,7 +88,6 @@
         .form-row2 input,
         .form-row2 select {
             flex-basis: 70%; /* Adjust input width */
-
         }
 
         #tagline {
@@ -95,7 +102,7 @@
 
     <div class="form-container">
         <div align="center">
-        <h4>Upload Details</h4>
+            <h4>Upload Details</h4>
         </div>
 
         <form action="/submit" method="post" enctype="multipart/form-data">
@@ -125,26 +132,18 @@
                     <option value="job">Job</option>
                     <option value="both">Both</option>
                 </select>
-                <label for="job">Select your desired role:</label>
+                <label for="job">Select your desired role:</label>
                 <select name="job" id="job" required>
                     <option value="" disabled selected>Select Role</option>
                     <option value="Full stack Developer">Full stack developer</option>
                     <option value="Data Analyst">Data Analyst</option>
                     <option value="Sales">Sales</option>
                 </select>
-                <label for="experience">Experience:</label>
-                <select name="experience" id="experience" required>
-                    <option value="" disabled selected>Select Experience</option>
-                    <option value="Less than 1 year">Less than 1 year</option>
-                    <option value="Greater than 1 year">Greater than 1 year</option>
-                    <option value="Between 1 and 2 years">Between 1 and 2 years</option>
-                </select>
+
                 <label for="location">Location:</label>
                 <select name="location" id="location" required>
                     <option value="" disabled selected>Select Location</option>
-                    <option value="Bangalore">Bangalore</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Mumbai">Mumbai</option>
+                    <option value="India">Bangalore</option>
                 </select>
             </div>
             <!-- Third row -->
@@ -157,11 +156,10 @@
                 <input type="text" id="additional_links" name="additional_links">
             </div>
             <!-- Fourth row -->
-            <div align="center" >
-
+            <div align="center">
                 <label for="file">Choose Resume File:</label>
                 <input type="file" id="file" name="file" required>
-                </div>
+            </div>
             <!-- Submit button -->
             <div class="form-actions">
                 <input type="submit" value="Submit">
@@ -174,8 +172,11 @@
     </div>
 
     <footer>
-        <p>&copy; Trewq 2024</p>
-        <p>Email: abc</p>
+        <div>
+            <p>For queries and feedback please send us an email using the address below.</p>
+            <p>Email: trewqcorp2@gmail.com</p>
+        </div>
+        <p class="footer-text">&copy; Trewq 2024</p>
     </footer>
 </body>
 </html>
