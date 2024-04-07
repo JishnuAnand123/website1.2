@@ -36,13 +36,13 @@ def create_table():
     conn = psycopg2.connect(host=db_host, user=db_user, password=db_password, dbname=db_name)
     cur = conn.cursor()
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS user_data (
+        CREATE TABLE IF NOT EXISTS final_user_data (
             id SERIAL PRIMARY KEY,
             name VARCHAR(255),
             phone_num VARCHAR(20),
             email VARCHAR(255),
             address VARCHAR(255),
-            experience VARCHAR(50),
+            #experience VARCHAR(50),
             location VARCHAR(20),
             github VARCHAR(100) DEFAULT 'NONE',
             linkdin VARCHAR(100) DEFAULT 'NONE',
