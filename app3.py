@@ -42,7 +42,6 @@ def create_table():
             phone_num VARCHAR(20),
             email VARCHAR(255),
             address VARCHAR(255),
-            #experience VARCHAR(50),
             location VARCHAR(20),
             github VARCHAR(100) DEFAULT 'NONE',
             linkdin VARCHAR(100) DEFAULT 'NONE',
@@ -58,11 +57,11 @@ def create_table():
 
 
 
-def insert_data(name, phone_num, email,address,experience,location,github,linkdin,additional_link, job_role, file_name,type):
+def insert_data(name, phone_num, email,address,location,github,linkdin,additional_link, job_role, file_name,type):
     conn = psycopg2.connect(host=db_host, user=db_user, password=db_password, dbname=db_name)
     cur = conn.cursor()
-    cur.execute("INSERT INTO user_data (name, phone_num, email,address,experience,location,github,linkdin,additional_link,job_role, file_name,type) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                (name, phone_num, email,address,experience,location,github,linkdin,additional_link, job_role, file_name,type))
+    cur.execute("INSERT INTO user_data (name, phone_num, email,address,location,github,linkdin,additional_link,job_role, file_name,type) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                (name, phone_num, email,address,location,github,linkdin,additional_link, job_role, file_name,type))
     conn.commit()
     conn.close()
 
@@ -79,7 +78,6 @@ def submit():
     phone_num=request.form.get("phone")
     email = request.form.get('email')
     address= request.form.get("address")
-    experience = request.form.get("experience")
     location = request.form.get("location")
     github = request.form.get("github")
     linkdin = request.form.get("linkdin")
@@ -110,7 +108,7 @@ def submit():
     create_table()
 
     # Insert data into the PostgreSQL database
-    insert_data(name, phone_num, email,address,experience,location,github,linkdin,additional_link, job_role, uploaded_file.filename,type)
+    insert_data(name, phone_num, email,address,location,github,linkdin,additional_link, job_role, uploaded_file.filename,type)
 
     return render_template("submit.html")
 
